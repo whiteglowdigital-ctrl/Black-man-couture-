@@ -58,52 +58,53 @@ window.SITE = {
 
   sizes: ['S', 'M', 'L', 'XL', 'XXL', 'Sur-mesure'],
 
+  // Deux familles : les ensembles (manches longues et courtes) et les vestes.
   categories: [
-    { id: 'manches-longues', label: 'Manches longues', text: 'Ensembles col rond ou col chemise, broderies et liserés.' },
-    { id: 'manches-courtes', label: 'Manches courtes', text: 'Coupe ajustée, surpiqûres contrastées.' },
-    { id: 'vestes', label: 'Vestes & costumes', text: 'Gilets, sahariennes et vestes col mao.' },
-    { id: 'atelier', label: 'Sorties d’atelier', text: 'Pièces brodées, tout juste sorties de l’atelier.' },
+    { id: 'ensembles', label: 'Ensembles', text: 'Manches longues ou courtes, broderies, liserés et surpiqûres.', cover: '002' },
+    { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '020' },
   ],
 
   // Catalogue. ref = numéro du modèle (à reprendre dans les légendes TikTok/Instagram).
   // price = F CFA (PRIX D'EXEMPLE, à remplacer). Noms descriptifs, à valider avec le client.
   products: [
-    { ref: '001', name: 'Ensemble Marine Surpiqué', cat: 'manches-courtes', price: 40000, color: 'Bleu marine', hex: '#27324a', img: 'images/tenues/ensemble-marine-manches-courtes.webp', full: true },
-    { ref: '002', name: 'Ensemble Noir Galon', cat: 'manches-longues', price: 50000, color: 'Noir', hex: '#121212', img: 'images/tenues/ensemble-noir-galon-rouge.webp', detail: 'Galon brodé rouge et blanc' },
-    { ref: '003', name: 'Ensemble Liseré Moka', cat: 'manches-longues', price: 55000, color: 'Moka', hex: '#7a6455', img: 'images/tenues/ensemble-marron-liseres.webp', detail: 'Col chemise, liserés blancs' },
-    { ref: '004', name: 'Ensemble Marine Floral', cat: 'manches-longues', price: 50000, color: 'Bleu marine', hex: '#1d2436', img: 'images/tenues/ensemble-marine-brode.webp', detail: 'Broderie florale bleue' },
-    { ref: '005', name: 'Ensemble Grège Brodé', cat: 'manches-longues', price: 50000, color: 'Grège', hex: '#b9b3aa', img: 'images/tenues/ensemble-beige-col-chemise.webp', detail: 'Col chemise, bande brodée' },
-    { ref: '006', name: 'Ensemble Bordeaux Surpiqué', cat: 'manches-courtes', price: 40000, color: 'Bordeaux', hex: '#4a2522', img: 'images/tenues/ensemble-bordeaux-manches-courtes.webp', detail: 'Surpiqûres blanches' },
-    { ref: '007', name: 'Ensemble Kaki', cat: 'manches-longues', price: 45000, color: 'Kaki', hex: '#4b5236', img: 'images/tenues/ensemble-kaki.webp', detail: 'Poche matelassée' },
-    { ref: '008', name: 'Ensemble Marine Col Beige', cat: 'manches-longues', price: 50000, color: 'Bleu marine', hex: '#1e2a44', img: 'images/tenues/ensemble-marine-col-beige.webp', detail: 'Col et poche contrastés' },
+    { ref: '001', name: 'Ensemble Marine Surpiqué', cat: 'ensembles', price: 40000, color: 'Bleu marine', hex: '#27324a', img: 'images/tenues/ensemble-marine-manches-courtes.webp', full: true },
+    { ref: '002', name: 'Ensemble Noir Galon', cat: 'ensembles', price: 50000, color: 'Noir', hex: '#121212', img: 'images/tenues/ensemble-noir-galon-rouge.webp', detail: 'Galon brodé rouge et blanc' },
+    { ref: '003', name: 'Ensemble Liseré Moka', cat: 'ensembles', price: 55000, color: 'Moka', hex: '#7a6455', img: 'images/tenues/ensemble-marron-liseres.webp', detail: 'Col chemise, liserés blancs' },
+    { ref: '004', name: 'Ensemble Marine Floral', cat: 'ensembles', price: 50000, color: 'Bleu marine', hex: '#1d2436', img: 'images/tenues/ensemble-marine-brode.webp', detail: 'Broderie florale bleue' },
+    { ref: '005', name: 'Ensemble Grège Brodé', cat: 'ensembles', price: 50000, color: 'Grège', hex: '#b9b3aa', img: 'images/tenues/ensemble-beige-col-chemise.webp', detail: 'Col chemise, bande brodée' },
+    { ref: '006', name: 'Ensemble Bordeaux Surpiqué', cat: 'ensembles', price: 40000, color: 'Bordeaux', hex: '#4a2522', img: 'images/tenues/ensemble-bordeaux-manches-courtes.webp', detail: 'Surpiqûres blanches' },
+    { ref: '007', name: 'Ensemble Kaki', cat: 'ensembles', price: 45000, color: 'Kaki', hex: '#4b5236', img: 'images/tenues/ensemble-kaki.webp', detail: 'Poche matelassée' },
+    { ref: '008', name: 'Ensemble Marine Col Beige', cat: 'ensembles', price: 50000, color: 'Bleu marine', hex: '#1e2a44', img: 'images/tenues/ensemble-marine-col-beige.webp', detail: 'Col et poche contrastés' },
     { ref: '009', name: 'Ensemble Gilet Marine', cat: 'vestes', price: 65000, color: 'Marine & gris perle', hex: '#1f2f5c', img: 'images/tenues/ensemble-gilet-marine.webp', detail: 'Gilet col châle, chemise à nervures, poignets contrastés' },
-    { ref: '010', name: 'Ensemble Camel Manches Blanches', cat: 'manches-longues', price: 50000, color: 'Camel & blanc', hex: '#a07850', img: 'images/tenues/ensemble-camel-manches-blanches.webp', detail: 'Plastron camel, manches blanches, col officier' },
+    { ref: '010', name: 'Ensemble Camel Manches Blanches', cat: 'ensembles', price: 50000, color: 'Camel & blanc', hex: '#a07850', img: 'images/tenues/ensemble-camel-manches-blanches.webp', detail: 'Plastron camel, manches blanches, col officier' },
     { ref: '011', name: 'Saharienne Sable', cat: 'vestes', price: 70000, color: 'Sable', hex: '#cdb38c', img: 'images/tenues/saharienne-sable.webp', detail: 'Veste à quatre poches, boutons contrastés' },
     { ref: '012', name: 'Costume Col Mao Marine', cat: 'vestes', price: 75000, color: 'Bleu marine', hex: '#1b2238', img: 'images/tenues/costume-col-mao-marine.webp', detail: 'Col mao, poches à rabat, pochette' },
     { ref: '013', name: 'Veste Jacquard Fleurie', cat: 'vestes', price: 70000, color: 'Marine & or', hex: '#2b3554', img: 'images/tenues/veste-jacquard-fleurie.webp', detail: 'Jacquard à fleurs, col mao, boutons métal' },
+    { ref: '019', name: 'Ensemble Marine Matelassé', cat: 'ensembles', price: 55000, color: 'Bleu marine', hex: '#1e2a4a', img: 'images/tenues/ensemble-marine-matelasse.webp', detail: 'Empiècement matelassé, col officier, patte cachée' },
+    { ref: '020', name: 'Veste Verte Rayée', cat: 'vestes', price: 75000, color: 'Vert pétrole', hex: '#1d4a48', img: 'images/tenues/veste-verte-rayee.webp', detail: 'Fines rayures dorées, boutons dorés, pochette camel' },
+    { ref: '021', name: 'Veste Brandebourgs', cat: 'vestes', price: 70000, color: 'Gris ardoise', hex: '#3a4150', img: 'images/tenues/veste-brandebourgs.webp', detail: 'Col mao, fermeture à brandebourgs' },
     // Sorties d'atelier : photo de la tenue pliée (img) + photo d'atelier complète (photo)
-    { ref: '014', name: 'Ensemble Noir Losanges', cat: 'atelier', price: 50000, color: 'Noir', hex: '#14161c', img: 'images/atelier/noir-losanges-plie.jpg', photo: 'images/atelier/noir-losanges.jpg', flat: true, detail: 'Plastron brodé à motif losanges, boutons dorés' },
-    { ref: '015', name: 'Ensemble Carreaux Gris', cat: 'atelier', price: 55000, color: 'Gris taupe', hex: '#6f6a64', img: 'images/atelier/carreaux-gris-plie.jpg', photo: 'images/atelier/carreaux-gris.jpg', flat: true, detail: 'Tissu à carreaux, poche brodée, col doublé imprimé' },
-    { ref: '016', name: 'Ensemble Bleu Ciel Brodé', cat: 'atelier', price: 50000, color: 'Bleu ciel', hex: '#9fb6d9', img: 'images/atelier/bleu-ciel-brode-plie.jpg', photo: 'images/atelier/bleu-ciel-brode.jpg', flat: true, detail: 'Col officier, broderie centrale chocolat et blanc' },
-    { ref: '017', name: 'Ensemble Marine Grecque Or', cat: 'atelier', price: 55000, color: 'Marine & or', hex: '#1a2440', img: 'images/atelier/marine-grecque-or-plie.jpg', photo: 'images/atelier/marine-grecque-or.jpg', flat: true, detail: 'Bande grecque dorée, poche brodée, col liseré' },
-    { ref: '018', name: 'Ensemble Noir Rayé Brodé', cat: 'atelier', price: 50000, color: 'Noir rayé', hex: '#1b1b1d', img: 'images/atelier/noir-raye-brode-plie.jpg', photo: 'images/atelier/noir-raye-brode.jpg', flat: true, detail: 'Fines rayures, broderie géométrique blanche' },
+    { ref: '014', name: 'Ensemble Noir Losanges', cat: 'ensembles', price: 50000, color: 'Noir', hex: '#14161c', img: 'images/atelier/noir-losanges-plie.jpg', photo: 'images/atelier/noir-losanges.jpg', flat: true, detail: 'Plastron brodé à motif losanges, boutons dorés' },
+    { ref: '015', name: 'Ensemble Carreaux Gris', cat: 'ensembles', price: 55000, color: 'Gris taupe', hex: '#6f6a64', img: 'images/atelier/carreaux-gris-plie.jpg', photo: 'images/atelier/carreaux-gris.jpg', flat: true, detail: 'Tissu à carreaux, poche brodée, col doublé imprimé' },
+    { ref: '016', name: 'Ensemble Bleu Ciel Brodé', cat: 'ensembles', price: 50000, color: 'Bleu ciel', hex: '#9fb6d9', img: 'images/atelier/bleu-ciel-brode-plie.jpg', photo: 'images/atelier/bleu-ciel-brode.jpg', flat: true, detail: 'Col officier, broderie centrale chocolat et blanc' },
+    { ref: '017', name: 'Ensemble Marine Grecque Or', cat: 'ensembles', price: 55000, color: 'Marine & or', hex: '#1a2440', img: 'images/atelier/marine-grecque-or-plie.jpg', photo: 'images/atelier/marine-grecque-or.jpg', flat: true, detail: 'Bande grecque dorée, poche brodée, col liseré' },
+    { ref: '018', name: 'Ensemble Noir Rayé Brodé', cat: 'ensembles', price: 50000, color: 'Noir rayé', hex: '#1b1b1d', img: 'images/atelier/noir-raye-brode-plie.jpg', photo: 'images/atelier/noir-raye-brode.jpg', flat: true, detail: 'Fines rayures, broderie géométrique blanche' },
+    { ref: '022', name: 'Ensemble Noir Points Or', cat: 'ensembles', price: 50000, color: 'Noir & or', hex: '#111111', img: 'images/atelier/noir-points-or.jpg', photo: null, flat: true, detail: 'Piqûres dorées, col doublé imprimé' },
   ],
   featured: '013', // tenue mise en avant (bloc « pièce vedette »)
-  featuredStrip: ['013', '009', '012', '002'], // miniatures du bloc vedette
-  homeCount: 12,   // nombre de tenues sur l'accueil (toutes sur la page Collection)
+  featuredStrip: ['013', '020', '012', '009'], // miniatures du bloc vedette
+  // Tenues affichées sur l'accueil (photos studio) ; la page Collection les affiche toutes
+  home: ['001', '002', '019', '003', '004', '010', '020', '012', '009', '011', '021', '005'],
 
-  // Section « tenues pliées » (réf. LUMIÈRE) : visuels pris à l'atelier
-  folded: {
-    kicker: 'L’atelier · Fait à Dakar',
+  // Bandeau défilant sous l'accueil
+  marquee: ['L’élégance', 'La modernité', 'La distinction', 'Fait à Dakar', 'Sur mesure', 'Livraison Sénégal & diaspora'],
+
+  // Galerie « L'atelier » : photos prises à l'atelier, chaque photo ouvre la fiche du modèle
+  atelier: {
+    kicker: 'Sorties d’atelier · Dakar',
     title: ['Coupé.', 'Cousu.', 'Brodé.'],
-    text: 'Chaque pièce sort de notre atelier de Dakar, étiquette BMC cousue au col. Broderies, liserés et finitions faits main.',
-    refs: ['016', '014', '017', '018', '015'],
-    pillars: [
-      { icon: 'needle', t: 'Fait à Dakar' },
-      { icon: 'ruler', t: 'Sur mesure' },
-      { icon: 'thread', t: 'Broderies main' },
-      { icon: 'globe', t: 'Sénégal & diaspora' },
-    ],
+    text: 'Elles sortent de notre atelier, étiquette BMC cousue au col. Chaque pièce de la galerie se commande comme les autres.',
+    refs: ['017', '014', '022', '018', '015', '016'],
   },
 
   hero: {

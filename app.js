@@ -112,22 +112,21 @@
     <p class="hero-corner">${S.hero.corner.map((k) => `<span>${esc(k)}</span>`).join('')}</p>
   </div></section>`;
 
-  // Bandeau noir : catégories + engagements
-  const catImg = (id) => (P.find((p) => p.cat === id) || {}).img;
-  const band = `
-  <section class="band on-ink" aria-label="Catégories"><div class="wrap" style="--n:${S.categories.length + 2}">
-    ${S.categories.map((c) => `
-    <a class="band-item" href="#collection-${c.id}">
-      <span class="band-thumb"><img src="${esc(catImg(c.id))}" alt="" loading="lazy"></span>
-      <span><h3>${esc(c.label)}</h3><p>${esc(c.text)}</p><span class="go">Voir →</span></span>
-    </a>`).join('')}
-    <div class="band-item">
-      <span class="band-thumb icon">${I.needle}</span>
-      <span><h3>Sur mesure</h3><p>${esc(S.brand.tagline)}.</p><span class="go">Taille « Sur-mesure » à la commande</span></span>
-    </div>
-    <div class="band-item">
-      <span class="band-thumb icon">${I.globe}</span>
-      <span><h3>Sénégal & diaspora</h3><p>Commande depuis ${esc(S.brand.city.split(',')[0])} ou l’étranger, prix en F CFA, € ou $.</p>${todo(true, 'Livraison à confirmer')}</span>
+  // Bandeau rouge défilant
+  const mq = (S.marquee || []).map((t) => `<span>${esc(t)}</span><i aria-hidden="true">✦</i>`).join('');
+  const marquee = `<div class="marquee" aria-label="${esc((S.marquee || []).join(', '))}"><div class="marquee-track" aria-hidden="true">${mq}${mq}${mq}${mq}</div></div>`;
+
+  // Deux grandes tuiles de catégories
+  const cats = `
+  <section class="cats" aria-label="Catégories"><div class="wrap">
+    <div class="cats-head"><p class="tag">[ Les familles ]</p><h2 class="h-disp">Choisissez votre style</h2></div>
+    <div class="cats-grid">
+    ${S.categories.map((c, i) => { const cv = byRef(c.cover) || P.find((p) => p.cat === c.id); const n = P.filter((p) => p.cat === c.id).length; return `
+      <a class="cat-tile reveal" href="#collection-${c.id}" style="--d:${i * 0.12}s">
+        <span class="cat-num">0${i + 1}</span>
+        <img src="${esc(cv.img)}" alt="${esc(c.label)}" loading="lazy">
+        <span class="cat-body"><span class="cat-count mono">${n} modèles</span><h3>${esc(c.label)}</h3><p>${esc(c.text)}</p><span class="cat-go">Découvrir ${I.arrow.replace('class="arrow"', '')}</span></span>
+      </a>`; }).join('')}
     </div>
   </div></section>`;
 
@@ -152,25 +151,25 @@
     </div>
   </div></section>`;
 
-  // Tenues pliées (réf. LUMIÈRE)
-  const FO = S.folded;
-  const folded = FO ? `
-  <section class="folded on-ink" id="atelier"><div class="wrap">
-    <div class="folded-box tex-dark">
-      <div class="folded-text">
-        <p class="tag tag--light">[ ${esc(FO.kicker)} ]</p>
-        <h2 class="h-disp">${FO.title.map((t) => `<span>${esc(t)}</span>`).join('')}</h2>
-        <p>${esc(FO.text)}</p>
-        <a class="btn" href="#collection-atelier">Voir les sorties d’atelier</a>
-      </div>
-      <div class="folded-stack">${FO.refs.map(byRef).filter(Boolean).map((p, i) => `<a class="fold" href="#modele-${p.ref}" style="--i:${i}" aria-label="Modèle ${p.ref}, ${esc(p.name)}"><img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"><span class="fold-tag">${esc(p.ref)}</span></a>`).join('')}</div>
+  // Galerie atelier (photos réelles, en fin de page)
+  const AT = S.atelier;
+  const atelier = AT ? `
+  <section class="atelier on-ink" id="atelier"><div class="wrap">
+    <div class="atelier-head">
+      <div><p class="tag tag--light">[ ${esc(AT.kicker)} ]</p><h2 class="h-disp">${AT.title.map((t) => `<span>${esc(t)}</span>`).join(' ')}</h2></div>
+      <p>${esc(AT.text)}</p>
     </div>
-    <ul class="pillars">${FO.pillars.map((x) => `<li>${I[x.icon] || ''}<span>${esc(x.t)}</span></li>`).join('')}</ul>
-  </div></section>` : '';
+  </div>
+  <div class="atelier-track">${AT.refs.map(byRef).filter(Boolean).map((p, i) => `
+    <a class="shot reveal" href="#modele-${p.ref}" style="--d:${i * 0.08}s">
+      <img src="${esc(p.photo || p.img)}" alt="${esc(p.name)}, photo d’atelier" loading="lazy">
+      <span class="shot-cap"><b>${esc(p.name)}</b><span class="mono">Modèle ${esc(p.ref)} · <span data-xof="${p.price}">${money(p.price)}</span></span></span>
+    </a>`).join('')}</div>
+  </section>` : '';
 
   // Cartes produit
   const card = (p) => `
-    <article class="card rv" data-cat="${p.cat}" data-ref="${p.ref}">
+    <article class="card reveal" data-cat="${p.cat}" data-ref="${p.ref}">
       <a class="card-link" href="#modele-${p.ref}" aria-label="Modèle ${p.ref}, ${esc(p.name)}">
         <div class="card-media${p.flat ? ' card-media--flat' : ''}"><span class="card-ref">[ ${esc(p.ref)} ]</span><img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"></div>
         <div class="card-info">
@@ -189,12 +188,12 @@
     <div class="coll-head">
       <h2 class="h-disp">La collection</h2>
       <div class="coll-meta">
-        <p class="tag">[ Ensembles ]<br>[ ${esc(S.categories.map((c) => c.label).join(' · '))} ]</p>
+        <p class="tag">[ ${esc(S.categories.map((c) => c.label).join(' · '))} ]</p>
         <p class="tag">Coupe ajustée<br>Broderies & liserés<br>Sur mesure</p>
       </div>
     </div>
     <div class="coll-bar">${chips('home')}<a class="link" href="#collection">Toute la collection</a></div>
-    <div class="grid" id="gridHome">${P.slice(0, S.homeCount || P.length).map(card).join('')}</div>
+    <div class="grid" id="gridHome">${(S.home ? S.home.map(byRef).filter(Boolean) : P.slice(0, 12)).map(card).join('')}</div>
     ${curNote}
   </div></section>`;
 
@@ -205,7 +204,7 @@
       <p class="tag">[ ${esc(S.brand.name)} ]</p>
       <h2 class="h-disp">${M.map((m) => `<span>${esc(m)}</span>`).join('')}</h2>
       <p>Couture africaine moderne pour l’homme classe, confiant et distingué. ${esc(S.brand.tagline)}.</p>
-      <a class="btn" href="#collection">Découvrir les modèles</a>
+      <a class="btn btn--ink" href="#collection">Découvrir les modèles</a>
     </div>
     <div class="motto-fig"><img src="${esc((byRef('005') || P[1]).img)}" alt="" loading="lazy"></div>
   </div></section>`;
@@ -289,7 +288,7 @@
   const proto = S.prototype ? '<button type="button" class="proto" id="proto" aria-pressed="true"><i></i>Repères prototype</button>' : '';
 
   root.innerHTML = loader + topbar + header + menu
-    + '<main id="pHome">' + hero + band + feat + folded + collHome + motto + how + '</main>'
+    + '<main id="pHome">' + hero + marquee + cats + feat + collHome + motto + atelier + how + '</main>'
     + collPage + pdpPage + footer + drawer + mbar + proto + '<div class="toast" id="toast" role="status"></div>';
   if (S.prototype) document.body.classList.add('show-todo');
 
@@ -596,6 +595,14 @@
   /* ---------- Repères prototype ---------- */
   const pr = $('#proto');
   if (pr) pr.onclick = () => { const on = document.body.classList.toggle('show-todo'); pr.setAttribute('aria-pressed', on); };
+
+  /* ---------- Apparitions au défilement ---------- */
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.body.classList.add('anim');
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    $$('.reveal').forEach((el) => io.observe(el));
+    setTimeout(() => $$('.reveal').forEach((el) => el.classList.add('in')), 6000); // filet de sécurité
+  }
 
   updBadge(); refreshPrices(); route();
 })();
