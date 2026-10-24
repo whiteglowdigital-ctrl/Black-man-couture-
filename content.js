@@ -19,7 +19,7 @@
 
 window.SITE = {
   // À augmenter après chaque changement d'images (force le rechargement chez les visiteurs)
-  assetVersion: 16,
+  assetVersion: 17,
   prototype: true,
 
   brand: {
@@ -62,7 +62,7 @@ window.SITE = {
 
   // Deux familles : les ensembles (manches longues et courtes) et les vestes.
   categories: [
-    { id: 'ensembles', label: 'Ensembles', text: 'Manches longues ou courtes, broderies, liserés et surpiqûres.', cover: '019' },
+    { id: 'ensembles', label: 'Ensembles', text: 'Manches longues ou courtes, broderies, liserés et surpiqûres.', cover: '003' },
     { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '020' },
   ],
 
@@ -82,7 +82,7 @@ window.SITE = {
     { ref: '011', name: 'Saharienne Sable', cat: 'vestes', price: 70000, color: 'Sable', hex: '#cdb38c', img: 'images/tenues/saharienne-sable.webp', detail: 'Veste à quatre poches, boutons contrastés' },
     { ref: '012', name: 'Costume Col Mao Marine', cat: 'vestes', price: 75000, color: 'Bleu marine', hex: '#1b2238', img: 'images/tenues/costume-col-mao-marine.webp', detail: 'Col mao, poches à rabat, pochette' },
     { ref: '013', name: 'Veste Jacquard Fleurie', cat: 'vestes', price: 70000, color: 'Marine & or', hex: '#2b3554', img: 'images/tenues/veste-jacquard-fleurie.webp', detail: 'Jacquard à fleurs, col mao, boutons métal' },
-    { ref: '019', name: 'Ensemble Marine Matelassé', cat: 'ensembles', price: 55000, color: 'Bleu marine', hex: '#1e2a4a', img: 'images/tenues/ensemble-marine-matelasse.webp', detail: 'Empiècement matelassé, col officier, patte cachée' },
+    { ref: '019', name: 'Veste Marine Matelassée', cat: 'vestes', price: 55000, color: 'Bleu marine', hex: '#1e2a4a', img: 'images/tenues/ensemble-marine-matelasse.webp', detail: 'Empiècement matelassé, col officier, patte cachée' },
     { ref: '020', name: 'Veste Verte Rayée', cat: 'vestes', price: 75000, color: 'Vert pétrole', hex: '#1d4a48', img: 'images/tenues/veste-verte-rayee.webp', detail: 'Fines rayures dorées, boutons dorés, pochette camel' },
     { ref: '021', name: 'Veste Brandebourgs', cat: 'vestes', price: 70000, color: 'Gris ardoise', hex: '#3a4150', img: 'images/tenues/veste-brandebourgs.webp', detail: 'Col mao, fermeture à brandebourgs' },
     { ref: '023', name: 'Ensemble Bleu Roi Liseré', cat: 'ensembles', price: 50000, color: 'Bleu roi', hex: '#1f3a8a', img: 'images/tenues/ensemble-bleu-roi.webp', detail: 'Lin texturé, liserés noirs en arabesque, col rond' },
