@@ -19,8 +19,8 @@
 
 window.SITE = {
   // À augmenter après chaque changement d'images (force le rechargement chez les visiteurs)
-  assetVersion: 19,
-  prototype: true,
+  assetVersion: 20,
+  prototype: false,
 
   brand: {
     name: 'Black Man Couture',
