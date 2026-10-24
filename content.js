@@ -61,6 +61,7 @@ window.SITE = {
   categories: [
     { id: 'manches-longues', label: 'Manches longues', text: 'Ensembles col rond ou col chemise, broderies et liserés.' },
     { id: 'manches-courtes', label: 'Manches courtes', text: 'Coupe ajustée, surpiqûres contrastées.' },
+    { id: 'vestes', label: 'Vestes & costumes', text: 'Gilets, sahariennes et vestes col mao.' },
   ],
 
   // Catalogue. ref = numéro du modèle (à reprendre dans les légendes TikTok/Instagram).
@@ -74,8 +75,15 @@ window.SITE = {
     { ref: '006', name: 'Ensemble Bordeaux Surpiqué', cat: 'manches-courtes', price: 40000, color: 'Bordeaux', hex: '#4a2522', img: 'images/tenues/ensemble-bordeaux-manches-courtes.webp', detail: 'Surpiqûres blanches' },
     { ref: '007', name: 'Ensemble Kaki', cat: 'manches-longues', price: 45000, color: 'Kaki', hex: '#4b5236', img: 'images/tenues/ensemble-kaki.webp', detail: 'Poche matelassée' },
     { ref: '008', name: 'Ensemble Marine Col Beige', cat: 'manches-longues', price: 50000, color: 'Bleu marine', hex: '#1e2a44', img: 'images/tenues/ensemble-marine-col-beige.webp', detail: 'Col et poche contrastés' },
+    { ref: '009', name: 'Ensemble Gilet Marine', cat: 'vestes', price: 65000, color: 'Marine & gris perle', hex: '#1f2f5c', img: 'images/tenues/ensemble-gilet-marine.webp', detail: 'Gilet col châle, chemise à nervures, poignets contrastés' },
+    { ref: '010', name: 'Ensemble Camel Manches Blanches', cat: 'manches-longues', price: 50000, color: 'Camel & blanc', hex: '#a07850', img: 'images/tenues/ensemble-camel-manches-blanches.webp', detail: 'Plastron camel, manches blanches, col officier' },
+    { ref: '011', name: 'Saharienne Sable', cat: 'vestes', price: 70000, color: 'Sable', hex: '#cdb38c', img: 'images/tenues/saharienne-sable.webp', detail: 'Veste à quatre poches, boutons contrastés' },
+    { ref: '012', name: 'Costume Col Mao Marine', cat: 'vestes', price: 75000, color: 'Bleu marine', hex: '#1b2238', img: 'images/tenues/costume-col-mao-marine.webp', detail: 'Col mao, poches à rabat, pochette' },
+    { ref: '013', name: 'Veste Jacquard Fleurie', cat: 'vestes', price: 70000, color: 'Marine & or', hex: '#2b3554', img: 'images/tenues/veste-jacquard-fleurie.webp', detail: 'Jacquard à fleurs, col mao, boutons métal' },
   ],
-  featured: '002', // tenue mise en avant (bloc « pièce vedette »)
+  featured: '013', // tenue mise en avant (bloc « pièce vedette »)
+  featuredStrip: ['013', '009', '012', '002'], // miniatures du bloc vedette
+  homeCount: 12,   // nombre de tenues sur l'accueil (toutes sur la page Collection)
 
   hero: {
     image: 'images/hero.webp',

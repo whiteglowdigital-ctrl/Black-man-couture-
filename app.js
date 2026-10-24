@@ -113,7 +113,7 @@
   // Bandeau noir : catégories + engagements
   const catImg = (id) => (P.find((p) => p.cat === id) || {}).img;
   const band = `
-  <section class="band on-ink" aria-label="Catégories"><div class="wrap">
+  <section class="band on-ink" aria-label="Catégories"><div class="wrap" style="--n:${S.categories.length + 2}">
     ${S.categories.map((c) => `
     <a class="band-item" href="#collection-${c.id}">
       <span class="band-thumb"><img src="${esc(catImg(c.id))}" alt="" loading="lazy"></span>
@@ -145,8 +145,8 @@
     </div>
     <div class="feat-media"><img id="fImg" src="${esc(F.img)}" alt="${esc(F.name)}" loading="lazy"></div>
     <div class="feat-thumbs">
-      <div class="feat-strip" id="fStrip">${P.slice(0, 4).map((p) => `<button type="button" data-ref="${p.ref}" aria-pressed="${p.ref === F.ref}" aria-label="${esc(p.name)}"><img src="${esc(p.img)}" alt="" loading="lazy"></button>`).join('')}</div>
-      <div class="feat-count mono"><span id="fIdx">01</span><i></i><span>${String(4).padStart(2, '0')}</span></div>
+      <div class="feat-strip" id="fStrip">${(S.featuredStrip || P.slice(0, 4).map((x) => x.ref)).map(byRef).filter(Boolean).map((p) => `<button type="button" data-ref="${p.ref}" aria-pressed="${p.ref === F.ref}" aria-label="${esc(p.name)}"><img src="${esc(p.img)}" alt="" loading="lazy"></button>`).join('')}</div>
+      <div class="feat-count mono"><span id="fIdx">01</span><i></i><span>${String((S.featuredStrip || [1, 2, 3, 4]).length).padStart(2, '0')}</span></div>
     </div>
   </div></section>`;
 
@@ -176,7 +176,7 @@
       </div>
     </div>
     <div class="coll-bar">${chips('home')}<a class="link" href="#collection">Toute la collection</a></div>
-    <div class="grid" id="gridHome">${P.map(card).join('')}</div>
+    <div class="grid" id="gridHome">${P.slice(0, S.homeCount || P.length).map(card).join('')}</div>
     ${curNote}
   </div></section>`;
 
