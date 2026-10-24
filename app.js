@@ -163,7 +163,7 @@
   <div class="atelier-track">${AT.refs.map(byRef).filter(Boolean).map((p, i) => `
     <a class="shot reveal" href="#modele-${p.ref}" style="--d:${i * 0.08}s">
       <img src="${esc(p.photo || p.img)}" alt="${esc(p.name)}, photo d’atelier" loading="lazy">
-      <span class="shot-cap"><b>${esc(p.name)}</b><span class="mono">Modèle ${esc(p.ref)} · <span data-xof="${p.price}">${money(p.price)}</span></span></span>
+      <span class="shot-cap"><b>${esc(p.name)}</b><span class="mono">Modèle ${esc(p.ref)} · <span class="shot-price" data-xof="${p.price}">${money(p.price)}</span></span></span>
     </a>`).join('')}</div>
   </section>` : '';
 
@@ -204,7 +204,7 @@
       <p class="tag">[ ${esc(S.brand.name)} ]</p>
       <h2 class="h-disp">${M.map((m) => `<span>${esc(m)}</span>`).join('')}</h2>
       <p>Couture africaine moderne pour l’homme classe, confiant et distingué. ${esc(S.brand.tagline)}.</p>
-      <a class="btn btn--ink" href="#collection">Découvrir les modèles</a>
+      <a class="btn" href="#collection">Découvrir les modèles</a>
     </div>
     <div class="motto-fig"><img src="${esc((byRef('005') || P[1]).img)}" alt="" loading="lazy"></div>
   </div></section>`;

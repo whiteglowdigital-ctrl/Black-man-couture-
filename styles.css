@@ -670,3 +670,100 @@ body.is-loading .hero * { animation-play-state: paused !important; }
   .atelier .wrap { padding-bottom: 28px; }
   .header .cur { border-color: rgba(243,242,239,.5); }
 }
+
+/* ==========================================================================
+   v4 — SOBRIÉTÉ HAUTE COUTURE
+   Trois fonds seulement : blanc pur · gris studio · noir profond.
+   Le rouge est réservé aux boutons d'action principaux et aux prix.
+   ========================================================================== */
+:root { --white: #ffffff; --studio: #eeedea; --black: #0b0b0b; }
+body { background: var(--white); }
+
+/* Boutons : fins, espacés, sans halo */
+.btn { min-height: 48px; padding: 0 30px; font-weight: 500; font-size: 11.5px; letter-spacing: .26em; border-radius: 2px; box-shadow: none; }
+.btn:hover { box-shadow: none; transform: translateY(-2px); }
+.btn--ink { background: var(--black); }
+.cat-go { padding: 11px 20px; border-radius: 2px; font-weight: 500; font-size: 11px; letter-spacing: .24em; }
+
+/* En-tête et barre haute : noir, sans rouge */
+.topbar { background: var(--black); border-bottom: 1px solid rgba(243,242,239,.08); }
+.topbar a:hover { color: var(--on-ink); opacity: .7; }
+.header .cur button[aria-pressed="true"] { background: var(--on-ink); color: var(--black); }
+.nav a::after { background: currentColor; }
+.badge { background: var(--on-ink); color: var(--black); }
+
+/* Accueil : gris studio, nom en noir profond */
+.hero { background: radial-gradient(60% 70% at 50% 58%, #ffffff 0%, var(--studio) 70%); color: var(--ink); }
+.hero::before { background: var(--weave); opacity: .03; }
+.hero-word { color: var(--ink); }
+.hero-word .ch:nth-child(n) { text-shadow: none; }
+.hero-sub { color: var(--ink); text-shadow: none; font-weight: 400; letter-spacing: .9em; }
+.hero-kicker::after, .hero-corner::after { background: var(--ink); height: 1px; }
+.hero .link { color: var(--ink); }
+.hero-fig img { filter: drop-shadow(0 30px 34px rgba(0,0,0,.2)); }
+@media (max-width: 720px) { .hero-corner { border-top-color: var(--line) !important; } }
+
+/* Bandeau fin noir, texte blanc discret */
+.marquee { background: var(--black); color: var(--on-ink); border: 0; }
+.marquee-track { padding: 13px 0; gap: 40px; animation-duration: 60s; }
+.marquee-track span { font-family: var(--f-body); font-weight: 400; font-size: 11.5px; letter-spacing: .32em; }
+.marquee-track i { font-size: 7px; opacity: .45; }
+
+/* Choisissez votre style : fond noir, tuiles sombres neutres */
+.cats { background: var(--black); color: var(--on-ink); }
+.cats::after { background: var(--weave-light); opacity: .03; }
+.cats .tag { color: var(--on-ink-muted); }
+.cat-tile, .cat-tile:nth-child(2) { background: radial-gradient(70% 80% at 72% 70%, #2c2c2c 0%, #161616 55%, #101010 100%); border: 1px solid rgba(243,242,239,.08); border-radius: 2px; }
+.cat-count { color: var(--on-ink-muted); }
+.cat-num { -webkit-text-stroke-color: rgba(243,242,239,.14); }
+
+/* Pièce vedette : blanc pur */
+.feat { background: var(--white); }
+.feat-info .h-disp sup { color: var(--ink); }
+.feat-strip button { background: var(--studio); }
+.feat-strip button:hover { background: #e4e2de; }
+
+/* Collection : gris studio */
+.coll { background: var(--studio); }
+.card-media { background: radial-gradient(80% 70% at 50% 35%, #ffffff 0%, #f4f3f1 75%); }
+.card:hover .card-media { background: radial-gradient(80% 70% at 50% 35%, #ffffff 0%, #efeeeb 75%); }
+.card-media::before { background: var(--ink); height: 1px; }
+.card-add:hover { background: var(--ink); opacity: .85; }
+.search { background: var(--white); }
+
+/* Devise : blanc pur, texte noir profond */
+.motto { background: var(--white); color: var(--ink); }
+.motto::before { background: var(--weave); opacity: .03; }
+.motto-text .tag { color: var(--muted); }
+.motto-text .h-disp span:nth-child(2) { color: var(--ink); font-weight: 400; }
+.motto-text p { color: var(--muted); }
+.motto-fig img, .motto-fig:hover img { filter: drop-shadow(0 30px 34px rgba(0,0,0,.18)); }
+
+/* Atelier : noir profond, sans rouge sauf les prix */
+.atelier { background: var(--black); }
+.tag--light { color: var(--on-ink-muted); }
+.atelier-head .h-disp span:last-child { color: var(--on-ink); }
+.shot { border-radius: 2px; }
+.shot-cap .mono { color: var(--on-ink-muted); }
+.shot-cap .shot-price { color: #ff4d5e; }
+.shot:hover { box-shadow: 0 0 0 1px rgba(243,242,239,.5); }
+
+/* Comment commander : gris studio */
+.how { background: var(--studio); }
+.steps li { background: var(--white); }
+.steps li::before { color: var(--ink); font-weight: 400; }
+.pdp-more li::before { color: var(--ink); }
+.drawer-steps span.on { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+.field input:focus, .field select:focus, .field textarea:focus { box-shadow: 0 0 0 3px rgba(13,13,13,.08); }
+.sizes input:focus-visible + span, .seg input:focus-visible + span { outline-color: var(--ink); }
+.pdp-thumbs button[aria-pressed="true"] img { box-shadow: 0 0 0 1.5px var(--ink); }
+
+/* Écran d'entrée : noir neutre */
+.loader { background: radial-gradient(60% 55% at 50% 45%, #1e1e1e 0%, #0b0b0b 70%); }
+.loader-line i { background: var(--on-ink); }
+
+/* Pages intérieures sur blanc */
+#pColl .coll { background: var(--white); }
+.pdp, #pPdp .page-head { background: var(--white); }
+.pdp-media { background: radial-gradient(80% 70% at 50% 35%, #ffffff 0%, var(--studio) 80%); }
+@media (max-width: 720px) { .hero-sub { z-index: 1; } }
