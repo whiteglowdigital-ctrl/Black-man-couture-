@@ -872,3 +872,10 @@ body { background: var(--white); }
   .header .cur button { min-height: 32px; min-width: 26px; }
   .hero-kicker { letter-spacing: .18em; }
 }
+
+/* v12 — ordinateur : logo à gauche, navigation à côté, devises et panier à droite */
+@media (min-width: 1181px) {
+  .header .wrap { grid-template-columns: auto 1fr auto; gap: clamp(28px, 4vw, 64px); }
+  .header .brand { order: -1; justify-self: start; }
+  .header .nav { justify-self: start; }
+}
