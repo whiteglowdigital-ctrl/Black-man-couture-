@@ -61,7 +61,7 @@ window.SITE = {
   // Deux familles : les ensembles (manches longues et courtes) et les vestes.
   categories: [
     { id: 'ensembles', label: 'Ensembles', text: 'Manches longues ou courtes, broderies, liserés et surpiqûres.', cover: '026' },
-    { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '020' },
+    { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '028' },
   ],
 
   // Catalogue. ref = numéro du modèle (à reprendre dans les légendes TikTok/Instagram).
@@ -76,7 +76,7 @@ window.SITE = {
     { ref: '007', name: 'Ensemble Kaki', cat: 'ensembles', price: 45000, color: 'Kaki', hex: '#4b5236', img: 'images/tenues/ensemble-kaki.webp', detail: 'Poche matelassée' },
     { ref: '008', name: 'Ensemble Marine Col Beige', cat: 'ensembles', price: 50000, color: 'Bleu marine', hex: '#1e2a44', img: 'images/tenues/ensemble-marine-col-beige.webp', detail: 'Col et poche contrastés' },
     { ref: '009', name: 'Ensemble Gilet Marine', cat: 'vestes', price: 65000, color: 'Marine & gris perle', hex: '#1f2f5c', img: 'images/tenues/ensemble-gilet-marine.webp', detail: 'Gilet col châle, chemise à nervures, poignets contrastés' },
-    { ref: '010', name: 'Ensemble Camel Manches Blanches', cat: 'ensembles', price: 50000, color: 'Camel & blanc', hex: '#a07850', img: 'images/tenues/ensemble-camel-manches-blanches.webp', detail: 'Plastron camel, manches blanches, col officier' },
+    { ref: '010', name: 'Ensemble Camel Manches Blanches', cat: 'vestes', price: 50000, color: 'Camel & blanc', hex: '#a07850', img: 'images/tenues/ensemble-camel-manches-blanches.webp', detail: 'Plastron camel, manches blanches, col officier' },
     { ref: '011', name: 'Saharienne Sable', cat: 'vestes', price: 70000, color: 'Sable', hex: '#cdb38c', img: 'images/tenues/saharienne-sable.webp', detail: 'Veste à quatre poches, boutons contrastés' },
     { ref: '012', name: 'Costume Col Mao Marine', cat: 'vestes', price: 75000, color: 'Bleu marine', hex: '#1b2238', img: 'images/tenues/costume-col-mao-marine.webp', detail: 'Col mao, poches à rabat, pochette' },
     { ref: '013', name: 'Veste Jacquard Fleurie', cat: 'vestes', price: 70000, color: 'Marine & or', hex: '#2b3554', img: 'images/tenues/veste-jacquard-fleurie.webp', detail: 'Jacquard à fleurs, col mao, boutons métal' },
@@ -88,6 +88,8 @@ window.SITE = {
     { ref: '025', name: 'Ensemble Zippé Chocolat', cat: 'ensembles', price: 55000, color: 'Chocolat & sable', hex: '#4a2c22', img: 'images/tenues/ensemble-zippe-chocolat.webp', detail: 'Fermeture zippée dorée, manches sable, poches liserées' },
     { ref: '026', name: 'Ensemble Kaki Liseré', cat: 'ensembles', price: 50000, color: 'Kaki', hex: '#5b5f3e', img: 'images/tenues/ensemble-kaki-lisere.webp', detail: 'Tissu texturé, liserés noirs en arabesque' },
     { ref: '027', name: 'Ensemble Mauve Empiècement', cat: 'ensembles', price: 50000, color: 'Mauve & prune', hex: '#9a7f99', img: 'images/tenues/ensemble-mauve.webp', detail: 'Empiècement prune, poches arrondies, liseré crème' },
+    { ref: '028', name: 'Gilet Carreaux Chocolat', cat: 'vestes', price: 70000, color: 'Chocolat', hex: '#4a2a20', img: 'images/tenues/gilet-carreaux-chocolat.webp', detail: 'Gilet col mao à carreaux, boutons dorés, pochette, chemise blanche' },
+    { ref: '029', name: 'Veste Longue Chocolat', cat: 'vestes', price: 65000, color: 'Chocolat & sable', hex: '#5a3a2c', img: 'images/tenues/veste-longue-chocolat.webp', detail: 'Veste longue sans manches sur tunique sable à nervures' },
     // Sorties d'atelier : photo de la tenue pliée (img) + photo d'atelier complète (photo)
     { ref: '014', name: 'Ensemble Noir Losanges', cat: 'ensembles', price: 50000, color: 'Noir', hex: '#14161c', img: 'images/atelier/noir-losanges-plie.jpg', photo: 'images/atelier/noir-losanges.jpg', flat: true, detail: 'Plastron brodé à motif losanges, boutons dorés' },
     { ref: '015', name: 'Ensemble Carreaux Gris', cat: 'ensembles', price: 55000, color: 'Gris taupe', hex: '#6f6a64', img: 'images/atelier/carreaux-gris-plie.jpg', photo: 'images/atelier/carreaux-gris.jpg', flat: true, detail: 'Tissu à carreaux, poche brodée, col doublé imprimé' },
@@ -99,7 +101,7 @@ window.SITE = {
   featured: '024', // tenue mise en avant (bloc « pièce vedette »)
   featuredStrip: ['024', '013', '020', '025'], // miniatures du bloc vedette
   // Tenues affichées sur l'accueil (photos studio) ; la page Collection les affiche toutes
-  home: ['023', '024', '027', '025', '026', '002', '019', '020', '013', '012', '009', '011'],
+  home: ['023', '024', '028', '027', '025', '026', '029', '020', '013', '012', '009', '002'],
 
   // Bandeau défilant sous l'accueil
   marquee: ['L’élégance', 'La modernité', 'La distinction', 'Fait à Dakar', 'Sur mesure', 'Livraison Sénégal & diaspora'],
