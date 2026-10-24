@@ -19,7 +19,7 @@
 
 window.SITE = {
   // À augmenter après chaque changement d'images (force le rechargement chez les visiteurs)
-  assetVersion: 15,
+  assetVersion: 16,
   prototype: true,
 
   brand: {
@@ -62,8 +62,8 @@ window.SITE = {
 
   // Deux familles : les ensembles (manches longues et courtes) et les vestes.
   categories: [
-    { id: 'ensembles', label: 'Ensembles', text: 'Manches longues ou courtes, broderies, liserés et surpiqûres.', cover: '026' },
-    { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '028' },
+    { id: 'ensembles', label: 'Ensembles', text: 'Manches longues ou courtes, broderies, liserés et surpiqûres.', cover: '019' },
+    { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '020' },
   ],
 
   // Catalogue. ref = numéro du modèle (à reprendre dans les légendes TikTok/Instagram).
