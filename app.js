@@ -355,7 +355,8 @@
     hd.classList.toggle('scrolled', y > 30);
     hd.classList.toggle('hide', y > 500 && y > lastY + 4); if (y < lastY - 4) hd.classList.remove('hide');
     lastY = y;
-    mb.classList.toggle('on', !$('#pPdp').hidden && y > 380);
+    const da = $('#dAdd'); const r = da && da.getBoundingClientRect();
+    mb.classList.toggle('on', !$('#pPdp').hidden && !!r && (r.bottom < 60 || r.top > innerHeight));
   }, { passive: true });
 
   /* ---------- Filtres + recherche ---------- */
