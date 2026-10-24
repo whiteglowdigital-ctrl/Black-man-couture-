@@ -285,6 +285,7 @@
   const mbar = `<div class="mbar" id="mbar"><span class="p" id="mPrice"></span><button type="button" class="btn btn--red" id="mAdd">${I.bag}Ajouter au panier</button></div>`;
   const loader = !matchMedia('(prefers-reduced-motion: reduce)').matches ? `
   <div class="loader" id="loader" role="presentation"><div class="loader-in" aria-label="${esc(S.brand.name)}">
+    <span class="ld-mark" aria-hidden="true"></span>
     <p class="ld-word">${[...S.brand.word].map((c, i) => (c === ' ' ? '<span class="sp"> </span>' : `<span style="--i:${i}">${esc(c)}</span>`)).join('')}</p>
     <span class="ld-rule"></span>
     <p class="ld-sub">${esc(S.brand.sub)}</p>
@@ -311,7 +312,7 @@
     const el = w.parentElement; el.style.fontSize = '';
     const base = parseFloat(getComputedStyle(el).fontSize);
     let avail;
-    if (mode === 'hero') { const wr = el.parentElement; const cs = getComputedStyle(wr); avail = innerWidth <= 720 ? innerWidth * 0.84 : (wr.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) * 0.98; }
+    if (mode === 'hero') { const wr = el.parentElement; const cs = getComputedStyle(wr); avail = innerWidth <= 720 ? innerWidth - 24 : (wr.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) * 0.98; }
     else avail = el.clientWidth;
     el.style.fontSize = Math.min(base * avail / w.offsetWidth, 520) + 'px';
   };

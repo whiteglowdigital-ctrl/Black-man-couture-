@@ -823,3 +823,34 @@ body { background: var(--white); }
 /* v7 — les apparitions ne masquent jamais le contenu (glissement seul) */
 .anim .reveal { opacity: 1; transform: translateY(26px); }
 .anim .reveal.in { transform: none; }
+
+/* ==========================================================================
+   v8 — Écran d'entrée au monogramme BMC, nom derrière le mannequin sur mobile,
+   tenues entières dans les tuiles
+   ========================================================================== */
+/* Écran d'entrée : noir profond avec léger relief, grand monogramme rouge */
+.loader { background: radial-gradient(55% 50% at 50% 46%, #1b1b1b 0%, #0b0b0b 65%, #050505 100%); }
+.loader-in { gap: 22px; }
+.ld-mark { width: clamp(150px, 20vw, 230px); aspect-ratio: var(--mark-ratio); background: var(--red); -webkit-mask: var(--mark) center / contain no-repeat; mask: var(--mark) center / contain no-repeat; opacity: 0; transform: scale(.94); animation: ldMarkIn 1.1s cubic-bezier(.2,.8,.2,1) .1s forwards; margin-bottom: 10px; }
+@keyframes ldMarkIn { to { opacity: 1; transform: none; } }
+.loader .ld-word { font-size: clamp(15px, 1.8vw, 20px); }
+
+/* Tuiles : la tenue reste entière, jamais coupée par le bord */
+.cat-tile img { right: 4%; height: 92%; max-width: 50%; object-fit: contain; object-position: bottom right; }
+@media (max-width: 720px) {
+  .cat-tile img { right: 4%; height: 88%; max-width: 54%; }
+  .cat-body { max-width: 56%; }
+
+  /* Accueil mobile : « BLACK MAN » derrière le mannequin, comme sur ordinateur */
+  .hero-kicker { position: relative; z-index: 3; }
+  .hero-word { margin: 30vw calc(-1 * var(--gutter)) 0; z-index: 1; }
+  .hero-sub { align-self: flex-end; margin-top: 6px; z-index: 1; font-size: 11px; letter-spacing: .7em; padding-left: 0; }
+  .hero-fig { margin-top: -58vw; height: 122vw; max-height: 600px; z-index: 2; }
+  .hero-ctas { position: relative; z-index: 3; }
+}
+@media (max-width: 720px) {
+  .hero-word { margin-top: 32vw; }
+  .hero-fig { margin-top: -46vw; }
+  .cat-tile img { max-width: 44%; right: 3%; }
+  .cat-body { max-width: 56%; position: relative; z-index: 1; }
+}
