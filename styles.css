@@ -856,3 +856,5 @@ body { background: var(--white); }
 }
 /* v9 — plus de trait décoratif sous la phrase d'accroche sur mobile (il coupait la tête du mannequin) */
 @media (max-width: 720px) { .hero-kicker::after { display: none; } }
+/* v10 — plus d'air entre la phrase d'accroche et la tête du mannequin (mobile) */
+@media (max-width: 720px) { .hero-word { margin-top: 42vw; } }
