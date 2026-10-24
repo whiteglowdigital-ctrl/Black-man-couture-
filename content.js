@@ -62,6 +62,7 @@ window.SITE = {
     { id: 'manches-longues', label: 'Manches longues', text: 'Ensembles col rond ou col chemise, broderies et liserés.' },
     { id: 'manches-courtes', label: 'Manches courtes', text: 'Coupe ajustée, surpiqûres contrastées.' },
     { id: 'vestes', label: 'Vestes & costumes', text: 'Gilets, sahariennes et vestes col mao.' },
+    { id: 'atelier', label: 'Sorties d’atelier', text: 'Pièces brodées, tout juste sorties de l’atelier.' },
   ],
 
   // Catalogue. ref = numéro du modèle (à reprendre dans les légendes TikTok/Instagram).
@@ -80,10 +81,30 @@ window.SITE = {
     { ref: '011', name: 'Saharienne Sable', cat: 'vestes', price: 70000, color: 'Sable', hex: '#cdb38c', img: 'images/tenues/saharienne-sable.webp', detail: 'Veste à quatre poches, boutons contrastés' },
     { ref: '012', name: 'Costume Col Mao Marine', cat: 'vestes', price: 75000, color: 'Bleu marine', hex: '#1b2238', img: 'images/tenues/costume-col-mao-marine.webp', detail: 'Col mao, poches à rabat, pochette' },
     { ref: '013', name: 'Veste Jacquard Fleurie', cat: 'vestes', price: 70000, color: 'Marine & or', hex: '#2b3554', img: 'images/tenues/veste-jacquard-fleurie.webp', detail: 'Jacquard à fleurs, col mao, boutons métal' },
+    // Sorties d'atelier : photo de la tenue pliée (img) + photo d'atelier complète (photo)
+    { ref: '014', name: 'Ensemble Noir Losanges', cat: 'atelier', price: 50000, color: 'Noir', hex: '#14161c', img: 'images/atelier/noir-losanges-plie.jpg', photo: 'images/atelier/noir-losanges.jpg', flat: true, detail: 'Plastron brodé à motif losanges, boutons dorés' },
+    { ref: '015', name: 'Ensemble Carreaux Gris', cat: 'atelier', price: 55000, color: 'Gris taupe', hex: '#6f6a64', img: 'images/atelier/carreaux-gris-plie.jpg', photo: 'images/atelier/carreaux-gris.jpg', flat: true, detail: 'Tissu à carreaux, poche brodée, col doublé imprimé' },
+    { ref: '016', name: 'Ensemble Bleu Ciel Brodé', cat: 'atelier', price: 50000, color: 'Bleu ciel', hex: '#9fb6d9', img: 'images/atelier/bleu-ciel-brode-plie.jpg', photo: 'images/atelier/bleu-ciel-brode.jpg', flat: true, detail: 'Col officier, broderie centrale chocolat et blanc' },
+    { ref: '017', name: 'Ensemble Marine Grecque Or', cat: 'atelier', price: 55000, color: 'Marine & or', hex: '#1a2440', img: 'images/atelier/marine-grecque-or-plie.jpg', photo: 'images/atelier/marine-grecque-or.jpg', flat: true, detail: 'Bande grecque dorée, poche brodée, col liseré' },
+    { ref: '018', name: 'Ensemble Noir Rayé Brodé', cat: 'atelier', price: 50000, color: 'Noir rayé', hex: '#1b1b1d', img: 'images/atelier/noir-raye-brode-plie.jpg', photo: 'images/atelier/noir-raye-brode.jpg', flat: true, detail: 'Fines rayures, broderie géométrique blanche' },
   ],
   featured: '013', // tenue mise en avant (bloc « pièce vedette »)
   featuredStrip: ['013', '009', '012', '002'], // miniatures du bloc vedette
   homeCount: 12,   // nombre de tenues sur l'accueil (toutes sur la page Collection)
+
+  // Section « tenues pliées » (réf. LUMIÈRE) : visuels pris à l'atelier
+  folded: {
+    kicker: 'L’atelier · Fait à Dakar',
+    title: ['Coupé.', 'Cousu.', 'Brodé.'],
+    text: 'Chaque pièce sort de notre atelier de Dakar, étiquette BMC cousue au col. Broderies, liserés et finitions faits main.',
+    refs: ['016', '014', '017', '018', '015'],
+    pillars: [
+      { icon: 'needle', t: 'Fait à Dakar' },
+      { icon: 'ruler', t: 'Sur mesure' },
+      { icon: 'thread', t: 'Broderies main' },
+      { icon: 'globe', t: 'Sénégal & diaspora' },
+    ],
+  },
 
   hero: {
     image: 'images/hero.webp',

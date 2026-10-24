@@ -28,6 +28,8 @@
     poly: '<svg class="poly" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><polygon points="50,2 84,16 98,50 84,84 50,98 16,84 2,50 16,16"/></svg>',
     chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1.4-4.4A8.5 8.5 0 1 1 20.5 11.6Z"/><path d="M9 9.2c.3 1.9 1.9 3.9 4.2 4.8l1.2-1.1 1.9.9-.4 1.6c-3.6.2-7.9-3.3-8-7.3l1.6-.4.9 1.9Z"/></svg>',
     needle: '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M9 31 30 10"/><ellipse cx="31.6" cy="8.4" rx="1.5" ry="2.9" transform="rotate(45 31.6 8.4)"/><path d="M30.5 9.5c3.4 2.2 4.4 6.6 1.1 9.9-3.9 3.9-8.9-.5-12.8 3.4S16.7 32 12 33"/></svg>',
+    ruler: '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M5 26 26 5l9 9-21 21z"/><path d="m10 21 3 3M14 17l2 2M18 13l3 3M22 9l2 2"/></svg>',
+    thread: '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="12" y="6" width="16" height="28" rx="2"/><path d="M12 12h16M12 28h16M15 15l10 3M15 19l10 3M15 23l10 3"/></svg>',
     globe: '<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="20" cy="20" r="14"/><path d="M6 20h28M20 6c4 4 6 9 6 14s-2 10-6 14c-4-4-6-9-6-14s2-10 6-14Z"/></svg>',
   };
 
@@ -150,11 +152,27 @@
     </div>
   </div></section>`;
 
+  // Tenues pliées (réf. LUMIÈRE)
+  const FO = S.folded;
+  const folded = FO ? `
+  <section class="folded on-ink" id="atelier"><div class="wrap">
+    <div class="folded-box tex-dark">
+      <div class="folded-text">
+        <p class="tag tag--light">[ ${esc(FO.kicker)} ]</p>
+        <h2 class="h-disp">${FO.title.map((t) => `<span>${esc(t)}</span>`).join('')}</h2>
+        <p>${esc(FO.text)}</p>
+        <a class="btn" href="#collection-atelier">Voir les sorties d’atelier</a>
+      </div>
+      <div class="folded-stack">${FO.refs.map(byRef).filter(Boolean).map((p, i) => `<a class="fold" href="#modele-${p.ref}" style="--i:${i}" aria-label="Modèle ${p.ref}, ${esc(p.name)}"><img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"><span class="fold-tag">${esc(p.ref)}</span></a>`).join('')}</div>
+    </div>
+    <ul class="pillars">${FO.pillars.map((x) => `<li>${I[x.icon] || ''}<span>${esc(x.t)}</span></li>`).join('')}</ul>
+  </div></section>` : '';
+
   // Cartes produit
   const card = (p) => `
     <article class="card rv" data-cat="${p.cat}" data-ref="${p.ref}">
       <a class="card-link" href="#modele-${p.ref}" aria-label="Modèle ${p.ref}, ${esc(p.name)}">
-        <div class="card-media"><span class="card-ref">[ ${esc(p.ref)} ]</span><img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"></div>
+        <div class="card-media${p.flat ? ' card-media--flat' : ''}"><span class="card-ref">[ ${esc(p.ref)} ]</span><img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"></div>
         <div class="card-info">
           <h3 class="card-name">${esc(p.name)}</h3>
           <div class="card-row"><span class="swatch" style="--c:${p.hex}"><i></i>${esc(p.color)}</span>${priceSpan(p.price, 'card-price')}</div>
@@ -189,7 +207,7 @@
       <p>Couture africaine moderne pour l’homme classe, confiant et distingué. ${esc(S.brand.tagline)}.</p>
       <a class="btn" href="#collection">Découvrir les modèles</a>
     </div>
-    <div class="motto-fig"><img src="${esc((byRef('004') || P[1]).img)}" alt="" loading="lazy"></div>
+    <div class="motto-fig"><img src="${esc((byRef('005') || P[1]).img)}" alt="" loading="lazy"></div>
   </div></section>`;
 
   const how = `
@@ -228,7 +246,7 @@
   <main id="pPdp" hidden>
     <section class="page-head"><div class="wrap"><nav class="crumbs tag" aria-label="Fil d'Ariane"><a href="#top">Accueil</a><span>/</span><a href="#collection">Collection</a><span>/</span><span id="dCrumb"></span></nav></div></section>
     <section class="pdp"><div class="wrap">
-      <div class="pdp-media" id="dMedia"></div>
+      <div class="pdp-gal"><div class="pdp-media" id="dMedia"></div><div class="pdp-thumbs" id="dThumbs" hidden></div></div>
       <div class="pdp-info">
         <p class="tag" id="dCat"></p>
         <h1 class="h-disp" id="dName"></h1>
@@ -271,7 +289,7 @@
   const proto = S.prototype ? '<button type="button" class="proto" id="proto" aria-pressed="true"><i></i>Repères prototype</button>' : '';
 
   root.innerHTML = loader + topbar + header + menu
-    + '<main id="pHome">' + hero + band + feat + collHome + motto + how + '</main>'
+    + '<main id="pHome">' + hero + band + feat + folded + collHome + motto + how + '</main>'
     + collPage + pdpPage + footer + drawer + mbar + proto + '<div class="toast" id="toast" role="status"></div>';
   if (S.prototype) document.body.classList.add('show-todo');
 
@@ -426,7 +444,7 @@
       }
       body.innerHTML = cart.map((l, i) => { const p = byRef(l.ref); return `
         <div class="line">
-          <div class="line-img"><img src="${esc(p.img)}" alt=""></div>
+          <div class="line-img${p.flat ? ' line-img--flat' : ''}"><img src="${esc(p.img)}" alt=""></div>
           <div>
             <div class="line-top"><div><h3>${esc(p.name)}</h3><span class="tag">Modèle ${esc(p.ref)} · Taille ${esc(l.size)}</span></div><button type="button" class="rm" data-rm="${i}">Retirer</button></div>
             <div class="line-bot">
@@ -519,7 +537,17 @@
   let current = null; let qty = 1;
   const showPdp = (p) => {
     current = p; qty = 1;
-    $('#dMedia').innerHTML = `<span class="card-ref">[ Modèle ${esc(p.ref)} ]</span><img src="${esc(p.img)}" alt="${esc(p.name)}">`;
+    const views = [{ src: p.img, label: p.flat ? 'Vue de face' : 'Porté' }, ...(p.photo ? [{ src: p.photo, label: 'À l’atelier' }] : [])];
+    const showView = (i) => {
+      const v = views[i];
+      $('#dMedia').className = 'pdp-media' + (p.flat || i > 0 ? ' pdp-media--photo' : '');
+      $('#dMedia').innerHTML = `<span class="card-ref">[ Modèle ${esc(p.ref)} ]</span><img src="${esc(v.src)}" alt="${esc(p.name)} — ${esc(v.label)}">`;
+      $$('#dThumbs button').forEach((b, j) => b.setAttribute('aria-pressed', j === i));
+    };
+    const th = $('#dThumbs'); th.hidden = views.length < 2;
+    th.innerHTML = views.map((v, i) => `<button type="button" aria-pressed="${i === 0}"><img src="${esc(v.src)}" alt=""><span class="tag">${esc(v.label)}</span></button>`).join('');
+    $$('#dThumbs button').forEach((b, i) => b.addEventListener('click', () => showView(i)));
+    showView(0);
     $('#dCrumb').textContent = `Modèle ${p.ref}`;
     $('#dCat').innerHTML = `[ ${esc(catOf(p.cat).label)} ] &nbsp; <span class="swatch" style="--c:${p.hex}"><i></i>${esc(p.color)}</span>`;
     $('#dName').textContent = p.name;
