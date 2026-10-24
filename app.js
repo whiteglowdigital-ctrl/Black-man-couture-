@@ -284,7 +284,11 @@
 
   const mbar = `<div class="mbar" id="mbar"><span class="p" id="mPrice"></span><button type="button" class="btn btn--red" id="mAdd">${I.bag}Ajouter au panier</button></div>`;
   const loader = !matchMedia('(prefers-reduced-motion: reduce)').matches ? `
-  <div class="loader" id="loader"><div class="loader-in"><img src="${esc(S.brand.logo)}" alt="${esc(S.brand.name)}"><span class="loader-line"><i></i></span><p>${esc(S.brand.tagline)}</p></div></div>` : '';
+  <div class="loader" id="loader" role="presentation"><div class="loader-in" aria-label="${esc(S.brand.name)}">
+    <p class="ld-word">${[...S.brand.word].map((c, i) => (c === ' ' ? '<span class="sp"> </span>' : `<span style="--i:${i}">${esc(c)}</span>`)).join('')}</p>
+    <span class="ld-rule"></span>
+    <p class="ld-sub">${esc(S.brand.sub)}</p>
+  </div></div>` : '';
   const proto = S.prototype ? '<button type="button" class="proto" id="proto" aria-pressed="true"><i></i>Repères prototype</button>' : '';
 
   root.innerHTML = loader + topbar + header + menu
@@ -298,7 +302,7 @@
     document.body.classList.add('is-loading');
     let done = false;
     const finish = () => { if (done) return; done = true; ld.classList.add('out'); document.body.classList.remove('is-loading'); setTimeout(() => ld.remove(), 1100); };
-    setTimeout(finish, 2300); ld.addEventListener('click', finish);
+    setTimeout(finish, 2700); ld.addEventListener('click', finish);
   }
 
   /* ---------- Mots géants ajustés à la largeur ---------- */
@@ -307,7 +311,7 @@
     const el = w.parentElement; el.style.fontSize = '';
     const base = parseFloat(getComputedStyle(el).fontSize);
     let avail;
-    if (mode === 'hero') { const wr = el.parentElement; const cs = getComputedStyle(wr); avail = innerWidth <= 720 ? innerWidth - 20 : (wr.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) * 0.98; }
+    if (mode === 'hero') { const wr = el.parentElement; const cs = getComputedStyle(wr); avail = innerWidth <= 720 ? innerWidth * 0.84 : (wr.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)) * 0.98; }
     else avail = el.clientWidth;
     el.style.fontSize = Math.min(base * avail / w.offsetWidth, 520) + 'px';
   };
