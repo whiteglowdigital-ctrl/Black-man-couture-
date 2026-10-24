@@ -854,3 +854,5 @@ body { background: var(--white); }
   .cat-tile img { max-width: 44%; right: 3%; }
   .cat-body { max-width: 56%; position: relative; z-index: 1; }
 }
+/* v9 — plus de trait décoratif sous la phrase d'accroche sur mobile (il coupait la tête du mannequin) */
+@media (max-width: 720px) { .hero-kicker::after { display: none; } }

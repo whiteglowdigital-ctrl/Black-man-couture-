@@ -9,12 +9,14 @@
   const root = document.getElementById('site');
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  // Numéro de version ajouté aux images : force les navigateurs à recharger après une mise à jour
+  const V = (u) => (u ? `${u}${u.includes('?') ? '&' : '?'}v=${(window.SITE && window.SITE.assetVersion) || 1}` : u);
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const store = {
     get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* stockage indisponible : le panier reste en mémoire */ } },
   };
-  document.documentElement.style.setProperty('--mark', `url("${S.brand.mark}")`);
+  document.documentElement.style.setProperty('--mark', `url("${V(S.brand.mark)}")`);
   if (S.brand.markRatio) document.documentElement.style.setProperty('--mark-ratio', S.brand.markRatio);
 
   /* ---------- Icônes ---------- */
@@ -104,7 +106,7 @@
     <p class="hero-kicker">${S.hero.kicker.map((k) => `<span>${esc(k)}</span>`).join('')}</p>
     <h1 class="hero-word" aria-label="${esc(S.brand.name)}"><span class="w" id="heroWord">${wordHTML}</span></h1>
     <p class="hero-sub" aria-hidden="true">${esc(S.brand.sub)}</p>
-    <div class="hero-fig"><img src="${esc(S.hero.image)}" alt="Ensemble Black Man Couture porté" fetchpriority="high"></div>
+    <div class="hero-fig"><img src="${esc(V(S.hero.image))}" alt="Ensemble Black Man Couture porté" fetchpriority="high"></div>
     <div class="hero-ctas">
       <a class="btn" href="#collection">Voir la collection ${I.arrow.replace('class="arrow"', '')}</a>
       <a class="link" href="#commander">Comment commander</a>
@@ -124,7 +126,7 @@
     ${S.categories.map((c, i) => { const cv = byRef(c.cover) || P.find((p) => p.cat === c.id); const n = P.filter((p) => p.cat === c.id).length; return `
       <a class="cat-tile reveal" href="#collection-${c.id}" style="--d:${i * 0.12}s">
         <span class="cat-num">0${i + 1}</span>
-        <img src="${esc(cv.img)}" alt="${esc(c.label)}">
+        <img src="${esc(V(cv.img))}" alt="${esc(c.label)}">
         <span class="cat-body"><span class="cat-count mono">${n} modèles</span><h3>${esc(c.label)}</h3><p>${esc(c.text)}</p><span class="cat-go">Découvrir ${I.arrow.replace('class="arrow"', '')}</span></span>
       </a>`; }).join('')}
     </div>
@@ -144,9 +146,9 @@
         <div><span class="tag">Ajouter au panier</span><span class="price" id="fPrice" data-xof="${F.price}">${money(F.price)}</span></div>
       </div>
     </div>
-    <div class="feat-media"><img id="fImg" src="${esc(F.img)}" alt="${esc(F.name)}"></div>
+    <div class="feat-media"><img id="fImg" src="${esc(V(F.img))}" alt="${esc(F.name)}"></div>
     <div class="feat-thumbs">
-      <div class="feat-strip" id="fStrip">${(S.featuredStrip || P.slice(0, 4).map((x) => x.ref)).map(byRef).filter(Boolean).map((p) => `<button type="button" data-ref="${p.ref}" aria-pressed="${p.ref === F.ref}" aria-label="${esc(p.name)}"><img src="${esc(p.img)}" alt=""></button>`).join('')}</div>
+      <div class="feat-strip" id="fStrip">${(S.featuredStrip || P.slice(0, 4).map((x) => x.ref)).map(byRef).filter(Boolean).map((p) => `<button type="button" data-ref="${p.ref}" aria-pressed="${p.ref === F.ref}" aria-label="${esc(p.name)}"><img src="${esc(V(p.img))}" alt=""></button>`).join('')}</div>
       <div class="feat-count mono"><span id="fIdx">01</span><i></i><span>${String((S.featuredStrip || [1, 2, 3, 4]).length).padStart(2, '0')}</span></div>
     </div>
   </div></section>`;
@@ -162,7 +164,7 @@
   </div>
   <div class="atelier-track">${AT.refs.map(byRef).filter(Boolean).map((p, i) => `
     <a class="shot reveal" href="#modele-${p.ref}" style="--d:${i * 0.08}s">
-      <img src="${esc(p.photo || p.img)}" alt="${esc(p.name)}, photo d’atelier">
+      <img src="${esc(V(p.photo || p.img))}" alt="${esc(p.name)}, photo d’atelier">
       <span class="shot-cap"><b>${esc(p.name)}</b><span class="mono">Modèle ${esc(p.ref)} · <span class="shot-price" data-xof="${p.price}">${money(p.price)}</span></span></span>
     </a>`).join('')}</div>
   </section>` : '';
@@ -171,7 +173,7 @@
   const card = (p) => `
     <article class="card reveal" data-cat="${p.cat}" data-ref="${p.ref}">
       <a class="card-link" href="#modele-${p.ref}" aria-label="Modèle ${p.ref}, ${esc(p.name)}">
-        <div class="card-media${p.flat ? ' card-media--flat' : ''}"><span class="card-ref">[ ${esc(p.ref)} ]</span><img src="${esc(p.img)}" alt="${esc(p.name)}"></div>
+        <div class="card-media${p.flat ? ' card-media--flat' : ''}"><span class="card-ref">[ ${esc(p.ref)} ]</span><img src="${esc(V(p.img))}" alt="${esc(p.name)}"></div>
         <div class="card-info">
           <h3 class="card-name">${esc(p.name)}</h3>
           <div class="card-row"><span class="swatch" style="--c:${p.hex}"><i></i>${esc(p.color)}</span>${priceSpan(p.price, 'card-price')}</div>
@@ -219,7 +221,7 @@
   const footer = `
   <footer class="footer on-ink"><div class="wrap">
     <div class="foot-cols">
-      <div><img class="foot-logo" src="${esc(S.brand.logo)}" alt="Logo ${esc(S.brand.name)}"><p>${esc(S.brand.tagline)}. Couture africaine moderne pour homme, ${esc(S.brand.city)}.</p></div>
+      <div><img class="foot-logo" src="${esc(V(S.brand.logo))}" alt="Logo ${esc(S.brand.name)}"><p>${esc(S.brand.tagline)}. Couture africaine moderne pour homme, ${esc(S.brand.city)}.</p></div>
       <div><h4>Boutique</h4><ul><li><a href="#collection">Collection</a></li>${S.categories.map((c) => `<li><a href="#collection-${c.id}">${esc(c.label)}</a></li>`).join('')}<li><a href="#commander">Comment commander</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="${wa('Bonjour Black Man Couture, j’ai une question.')}" target="_blank" rel="noopener">WhatsApp</a></li><li class="muted">${esc(S.contact.whatsappDisplay)}</li><li class="muted">${esc(S.brand.city)}</li></ul></div>
       <div><h4>Suivre</h4><ul>${S.socials.filter((s) => s.url || S.prototype).map((s) => (s.url ? `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a></li>` : `<li class="muted">${esc(s.label)} ${todo(true, 'Lien à fournir')}</li>`)).join('')}</ul></div>
@@ -400,7 +402,7 @@
     $('#fRef').textContent = p.ref; $('#fName').innerHTML = `${esc(p.name)}<sup>BM</sup>`;
     $('#fColor').style.setProperty('--c', p.hex); $('#fColor').innerHTML = `<i></i>${esc(p.color)}`;
     const pr = $('#fPrice'); pr.dataset.xof = p.price; pr.textContent = money(p.price);
-    const img = $('#fImg'); img.style.opacity = 0; setTimeout(() => { img.src = p.img; img.alt = p.name; img.style.opacity = 1; }, 180);
+    const img = $('#fImg'); img.style.opacity = 0; setTimeout(() => { img.src = V(p.img); img.alt = p.name; img.style.opacity = 1; }, 180);
     $$('#fStrip button').forEach((b, i) => { const on = b.dataset.ref === ref; b.setAttribute('aria-pressed', on); if (on) $('#fIdx').textContent = String(i + 1).padStart(2, '0'); });
   };
   $$('#fStrip button').forEach((b) => b.addEventListener('click', () => setFeat(b.dataset.ref)));
@@ -448,7 +450,7 @@
       }
       body.innerHTML = cart.map((l, i) => { const p = byRef(l.ref); return `
         <div class="line">
-          <div class="line-img${p.flat ? ' line-img--flat' : ''}"><img src="${esc(p.img)}" alt=""></div>
+          <div class="line-img${p.flat ? ' line-img--flat' : ''}"><img src="${esc(V(p.img))}" alt=""></div>
           <div>
             <div class="line-top"><div><h3>${esc(p.name)}</h3><span class="tag">Modèle ${esc(p.ref)} · Taille ${esc(l.size)}</span></div><button type="button" class="rm" data-rm="${i}">Retirer</button></div>
             <div class="line-bot">
@@ -545,11 +547,11 @@
     const showView = (i) => {
       const v = views[i];
       $('#dMedia').className = 'pdp-media' + (p.flat || i > 0 ? ' pdp-media--photo' : '');
-      $('#dMedia').innerHTML = `<span class="card-ref">[ Modèle ${esc(p.ref)} ]</span><img src="${esc(v.src)}" alt="${esc(p.name)} — ${esc(v.label)}">`;
+      $('#dMedia').innerHTML = `<span class="card-ref">[ Modèle ${esc(p.ref)} ]</span><img src="${esc(V(v.src))}" alt="${esc(p.name)} — ${esc(v.label)}">`;
       $$('#dThumbs button').forEach((b, j) => b.setAttribute('aria-pressed', j === i));
     };
     const th = $('#dThumbs'); th.hidden = views.length < 2;
-    th.innerHTML = views.map((v, i) => `<button type="button" aria-pressed="${i === 0}"><img src="${esc(v.src)}" alt=""><span class="tag">${esc(v.label)}</span></button>`).join('');
+    th.innerHTML = views.map((v, i) => `<button type="button" aria-pressed="${i === 0}"><img src="${esc(V(v.src))}" alt=""><span class="tag">${esc(v.label)}</span></button>`).join('');
     $$('#dThumbs button').forEach((b, i) => b.addEventListener('click', () => showView(i)));
     showView(0);
     $('#dCrumb').textContent = `Modèle ${p.ref}`;
