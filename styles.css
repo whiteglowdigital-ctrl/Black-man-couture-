@@ -767,3 +767,16 @@ body { background: var(--white); }
 .pdp, #pPdp .page-head { background: var(--white); }
 .pdp-media { background: radial-gradient(80% 70% at 50% 35%, #ffffff 0%, var(--studio) 80%); }
 @media (max-width: 720px) { .hero-sub { z-index: 1; } }
+
+/* ==========================================================================
+   v5 — Hero : anthracite texturé, contraste maximal (le reste inchangé)
+   ========================================================================== */
+.hero { background: radial-gradient(48% 62% at 50% 60%, #2e2e2e 0%, #1a1a1a 45%, #0b0b0b 100%); color: var(--on-ink); }
+.hero::before { background: var(--weave-light); opacity: .045; }
+.hero-word { color: #f6f5f2; }
+.hero-word .ch:nth-child(n) { text-shadow: 0 0 50px rgba(0,0,0,.35); }
+.hero-sub { color: rgba(243,242,239,.75); }
+.hero-kicker::after, .hero-corner::after { background: var(--on-ink); }
+.hero .link { color: var(--on-ink); }
+.hero-fig img { filter: drop-shadow(0 30px 40px rgba(0,0,0,.75)) drop-shadow(0 0 70px rgba(255,255,255,.06)); }
+@media (max-width: 720px) { .hero-corner { border-top-color: rgba(243,242,239,.15) !important; } }
