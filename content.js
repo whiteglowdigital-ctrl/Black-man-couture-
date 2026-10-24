@@ -21,6 +21,7 @@
    - nom, logo, signature « Vente et confection d'habit sur mesure »
    - mode masculine, couture africaine moderne, boubous structurés,
      finitions haut de gamme
+   - logo BM (enseigne de la boutique), compte TikTok @blackmancouture1
    - présence sur Facebook, Instagram, TikTok, Snapchat, WhatsApp (icônes du logo)
    Tout le reste est À CONFIRMER.
    ========================================================================== */
@@ -36,9 +37,12 @@ window.SITE = {
     wordmark: 'BLACK MAN',             // mot géant du hero
     wordmarkSub: 'COUTURE',
     heroScript: 'Couture',             // mot manuscrit qui traverse le hero
-    logoMark: 'images/logo-mark.png',  // pictogramme machine à coudre (masque, recoloré en CSS)
-    logoRatio: '238 / 167',
-    logoFull: 'images/logo-rond.png',  // logo complet, affiché sur l'écran d'entrée
+    logoMark: 'images/logo-mark.png',  // monogramme BMC (masque, recoloré en CSS)
+    logoRatio: '480 / 383',
+    // Logo complet (écran d'entrée) : reconstitué d'après l'enseigne de la boutique.
+    // À remplacer par le fichier original du client dès qu'il est fourni.
+    logoFull: 'images/logo-bm.png',
+    // Autre logo utilisé par la marque (photo de profil TikTok) : images/logo-rond.png
     // Signature présente sur le logo officiel du client
     tagline: "Vente et confection d'habit sur mesure",
     activity: 'Couture africaine moderne · Homme',
@@ -50,7 +54,7 @@ window.SITE = {
     paper2: '#faf6f0',  // fond secondaire (crème du logo)
     paper3: '#e3dacc',
     ink: '#0f0d0c',     // noir profond
-    accent: '#c02821',  // rouge du logo Black Man Couture
+    accent: '#c8182c',  // rouge du logo Black Man Couture (enseigne BM)
     button: '#8f1d19',  // rouge profond des boutons de commande
     buttonHi: '#a8241f',
     muted: '#6e665c',
@@ -81,7 +85,7 @@ window.SITE = {
   // Réseaux visibles sur le logo ; liens à fournir.
   socials: [
     { label: 'Instagram', url: null, todo: true },
-    { label: 'TikTok', url: null, todo: true },
+    { label: 'TikTok', url: 'https://www.tiktok.com/@blackmancouture1' },
     { label: 'Facebook', url: null, todo: true },
     { label: 'Snapchat', url: null, todo: true },
   ],
