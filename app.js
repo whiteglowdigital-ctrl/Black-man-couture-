@@ -206,7 +206,7 @@
       <p>Couture africaine moderne pour l’homme classe, confiant et distingué. ${esc(S.brand.tagline)}.</p>
       <a class="btn" href="#collection">Découvrir les modèles</a>
     </div>
-    <div class="motto-fig"><img src="${esc((byRef('005') || P[1]).img)}" alt="" loading="lazy"></div>
+    <div class="motto-fig"><img src="${esc((byRef('025') || P[1]).img)}" alt="" loading="lazy"></div>
   </div></section>`;
 
   const how = `

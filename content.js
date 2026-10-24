@@ -60,8 +60,8 @@ window.SITE = {
 
   // Deux familles : les ensembles (manches longues et courtes) et les vestes.
   categories: [
-    { id: 'ensembles', label: 'Ensembles', text: 'Manches longues ou courtes, broderies, liserés et surpiqûres.', cover: '002' },
-    { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '020' },
+    { id: 'ensembles', label: 'Ensembles', text: 'Manches longues ou courtes, broderies, liserés et surpiqûres.', cover: '026' },
+    { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '024' },
   ],
 
   // Catalogue. ref = numéro du modèle (à reprendre dans les légendes TikTok/Instagram).
@@ -83,6 +83,11 @@ window.SITE = {
     { ref: '019', name: 'Ensemble Marine Matelassé', cat: 'ensembles', price: 55000, color: 'Bleu marine', hex: '#1e2a4a', img: 'images/tenues/ensemble-marine-matelasse.webp', detail: 'Empiècement matelassé, col officier, patte cachée' },
     { ref: '020', name: 'Veste Verte Rayée', cat: 'vestes', price: 75000, color: 'Vert pétrole', hex: '#1d4a48', img: 'images/tenues/veste-verte-rayee.webp', detail: 'Fines rayures dorées, boutons dorés, pochette camel' },
     { ref: '021', name: 'Veste Brandebourgs', cat: 'vestes', price: 70000, color: 'Gris ardoise', hex: '#3a4150', img: 'images/tenues/veste-brandebourgs.webp', detail: 'Col mao, fermeture à brandebourgs' },
+    { ref: '023', name: 'Ensemble Bleu Roi Liseré', cat: 'ensembles', price: 50000, color: 'Bleu roi', hex: '#1f3a8a', img: 'images/tenues/ensemble-bleu-roi.webp', detail: 'Lin texturé, liserés noirs en arabesque, col rond' },
+    { ref: '024', name: 'Veste Brodée Arabesques', cat: 'vestes', price: 85000, color: 'Anthracite', hex: '#3d3a37', img: 'images/tenues/veste-brodee-arabesques.webp', detail: 'Broderie perlée en arabesques, col officier, poche à rabat' },
+    { ref: '025', name: 'Ensemble Zippé Chocolat', cat: 'ensembles', price: 55000, color: 'Chocolat & sable', hex: '#4a2c22', img: 'images/tenues/ensemble-zippe-chocolat.webp', detail: 'Fermeture zippée dorée, manches sable, poches liserées' },
+    { ref: '026', name: 'Ensemble Kaki Liseré', cat: 'ensembles', price: 50000, color: 'Kaki', hex: '#5b5f3e', img: 'images/tenues/ensemble-kaki-lisere.webp', detail: 'Tissu texturé, liserés noirs en arabesque' },
+    { ref: '027', name: 'Ensemble Mauve Empiècement', cat: 'ensembles', price: 50000, color: 'Mauve & prune', hex: '#9a7f99', img: 'images/tenues/ensemble-mauve.webp', detail: 'Empiècement prune, poches arrondies, liseré crème' },
     // Sorties d'atelier : photo de la tenue pliée (img) + photo d'atelier complète (photo)
     { ref: '014', name: 'Ensemble Noir Losanges', cat: 'ensembles', price: 50000, color: 'Noir', hex: '#14161c', img: 'images/atelier/noir-losanges-plie.jpg', photo: 'images/atelier/noir-losanges.jpg', flat: true, detail: 'Plastron brodé à motif losanges, boutons dorés' },
     { ref: '015', name: 'Ensemble Carreaux Gris', cat: 'ensembles', price: 55000, color: 'Gris taupe', hex: '#6f6a64', img: 'images/atelier/carreaux-gris-plie.jpg', photo: 'images/atelier/carreaux-gris.jpg', flat: true, detail: 'Tissu à carreaux, poche brodée, col doublé imprimé' },
@@ -91,10 +96,10 @@ window.SITE = {
     { ref: '018', name: 'Ensemble Noir Rayé Brodé', cat: 'ensembles', price: 50000, color: 'Noir rayé', hex: '#1b1b1d', img: 'images/atelier/noir-raye-brode-plie.jpg', photo: 'images/atelier/noir-raye-brode.jpg', flat: true, detail: 'Fines rayures, broderie géométrique blanche' },
     { ref: '022', name: 'Ensemble Noir Points Or', cat: 'ensembles', price: 50000, color: 'Noir & or', hex: '#111111', img: 'images/atelier/noir-points-or.jpg', photo: null, flat: true, detail: 'Piqûres dorées, col doublé imprimé' },
   ],
-  featured: '013', // tenue mise en avant (bloc « pièce vedette »)
-  featuredStrip: ['013', '020', '012', '009'], // miniatures du bloc vedette
+  featured: '024', // tenue mise en avant (bloc « pièce vedette »)
+  featuredStrip: ['024', '013', '020', '025'], // miniatures du bloc vedette
   // Tenues affichées sur l'accueil (photos studio) ; la page Collection les affiche toutes
-  home: ['001', '002', '019', '003', '004', '010', '020', '012', '009', '011', '021', '005'],
+  home: ['023', '024', '027', '025', '026', '002', '019', '020', '013', '012', '009', '011'],
 
   // Bandeau défilant sous l'accueil
   marquee: ['L’élégance', 'La modernité', 'La distinction', 'Fait à Dakar', 'Sur mesure', 'Livraison Sénégal & diaspora'],
