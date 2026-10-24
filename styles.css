@@ -879,3 +879,18 @@ body { background: var(--white); }
   .header .brand { order: -1; justify-self: start; }
   .header .nav { justify-self: start; }
 }
+
+/* v13 — la navigation complète s’affiche dès 960 px (volet de l'artefact, petit portable) */
+@media (min-width: 961px) {
+  .nav { display: flex; }
+  .burger { display: none; }
+  .header .wrap { grid-template-columns: auto 1fr auto; gap: clamp(20px, 3vw, 64px); }
+  .header .brand { order: -1; justify-self: start; }
+  .header .nav { justify-self: start; }
+}
+@media (min-width: 961px) and (max-width: 1180px) {
+  .nav { gap: 14px; }
+  .nav a { font-size: 11px; letter-spacing: .1em; }
+  .header .cur button { padding: 6px 8px; }
+}
+.brand b { white-space: nowrap; }

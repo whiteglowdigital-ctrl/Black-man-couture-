@@ -19,7 +19,7 @@
 
 window.SITE = {
   // À augmenter après chaque changement d'images (force le rechargement chez les visiteurs)
-  assetVersion: 18,
+  assetVersion: 19,
   prototype: true,
 
   brand: {
