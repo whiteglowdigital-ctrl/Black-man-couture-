@@ -61,7 +61,7 @@ window.SITE = {
   // Deux familles : les ensembles (manches longues et courtes) et les vestes.
   categories: [
     { id: 'ensembles', label: 'Ensembles', text: 'Manches longues ou courtes, broderies, liserés et surpiqûres.', cover: '026' },
-    { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '024' },
+    { id: 'vestes', label: 'Vestes & costumes', text: 'Col mao, sahariennes, gilets et jacquards.', cover: '020' },
   ],
 
   // Catalogue. ref = numéro du modèle (à reprendre dans les légendes TikTok/Instagram).

@@ -819,3 +819,7 @@ body { background: var(--white); }
   .hero-ctas .link { font-size: 11px; letter-spacing: .24em; }
   .hero-corner { margin-top: 28px; }
 }
+
+/* v7 — les apparitions ne masquent jamais le contenu (glissement seul) */
+.anim .reveal { opacity: 1; transform: translateY(26px); }
+.anim .reveal.in { transform: none; }

@@ -124,7 +124,7 @@
     ${S.categories.map((c, i) => { const cv = byRef(c.cover) || P.find((p) => p.cat === c.id); const n = P.filter((p) => p.cat === c.id).length; return `
       <a class="cat-tile reveal" href="#collection-${c.id}" style="--d:${i * 0.12}s">
         <span class="cat-num">0${i + 1}</span>
-        <img src="${esc(cv.img)}" alt="${esc(c.label)}" loading="lazy">
+        <img src="${esc(cv.img)}" alt="${esc(c.label)}">
         <span class="cat-body"><span class="cat-count mono">${n} modèles</span><h3>${esc(c.label)}</h3><p>${esc(c.text)}</p><span class="cat-go">Découvrir ${I.arrow.replace('class="arrow"', '')}</span></span>
       </a>`; }).join('')}
     </div>
@@ -144,9 +144,9 @@
         <div><span class="tag">Ajouter au panier</span><span class="price" id="fPrice" data-xof="${F.price}">${money(F.price)}</span></div>
       </div>
     </div>
-    <div class="feat-media"><img id="fImg" src="${esc(F.img)}" alt="${esc(F.name)}" loading="lazy"></div>
+    <div class="feat-media"><img id="fImg" src="${esc(F.img)}" alt="${esc(F.name)}"></div>
     <div class="feat-thumbs">
-      <div class="feat-strip" id="fStrip">${(S.featuredStrip || P.slice(0, 4).map((x) => x.ref)).map(byRef).filter(Boolean).map((p) => `<button type="button" data-ref="${p.ref}" aria-pressed="${p.ref === F.ref}" aria-label="${esc(p.name)}"><img src="${esc(p.img)}" alt="" loading="lazy"></button>`).join('')}</div>
+      <div class="feat-strip" id="fStrip">${(S.featuredStrip || P.slice(0, 4).map((x) => x.ref)).map(byRef).filter(Boolean).map((p) => `<button type="button" data-ref="${p.ref}" aria-pressed="${p.ref === F.ref}" aria-label="${esc(p.name)}"><img src="${esc(p.img)}" alt=""></button>`).join('')}</div>
       <div class="feat-count mono"><span id="fIdx">01</span><i></i><span>${String((S.featuredStrip || [1, 2, 3, 4]).length).padStart(2, '0')}</span></div>
     </div>
   </div></section>`;
@@ -162,7 +162,7 @@
   </div>
   <div class="atelier-track">${AT.refs.map(byRef).filter(Boolean).map((p, i) => `
     <a class="shot reveal" href="#modele-${p.ref}" style="--d:${i * 0.08}s">
-      <img src="${esc(p.photo || p.img)}" alt="${esc(p.name)}, photo d’atelier" loading="lazy">
+      <img src="${esc(p.photo || p.img)}" alt="${esc(p.name)}, photo d’atelier">
       <span class="shot-cap"><b>${esc(p.name)}</b><span class="mono">Modèle ${esc(p.ref)} · <span class="shot-price" data-xof="${p.price}">${money(p.price)}</span></span></span>
     </a>`).join('')}</div>
   </section>` : '';
@@ -171,7 +171,7 @@
   const card = (p) => `
     <article class="card reveal" data-cat="${p.cat}" data-ref="${p.ref}">
       <a class="card-link" href="#modele-${p.ref}" aria-label="Modèle ${p.ref}, ${esc(p.name)}">
-        <div class="card-media${p.flat ? ' card-media--flat' : ''}"><span class="card-ref">[ ${esc(p.ref)} ]</span><img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy"></div>
+        <div class="card-media${p.flat ? ' card-media--flat' : ''}"><span class="card-ref">[ ${esc(p.ref)} ]</span><img src="${esc(p.img)}" alt="${esc(p.name)}"></div>
         <div class="card-info">
           <h3 class="card-name">${esc(p.name)}</h3>
           <div class="card-row"><span class="swatch" style="--c:${p.hex}"><i></i>${esc(p.color)}</span>${priceSpan(p.price, 'card-price')}</div>
@@ -206,7 +206,7 @@
       <p>Couture africaine moderne pour l’homme classe, confiant et distingué. ${esc(S.brand.tagline)}.</p>
       <a class="btn" href="#collection">Découvrir les modèles</a>
     </div>
-    <div class="motto-fig"><img src="${esc((byRef('025') || P[1]).img)}" alt="" loading="lazy"></div>
+    <div class="motto-fig"><img src="${esc((byRef('025') || P[1]).img)}" alt=""></div>
   </div></section>`;
 
   const how = `
